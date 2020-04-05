@@ -3,6 +3,7 @@
 import pymsteams, sys
 from time import sleep
 
+max_tries=10
 testing=''
 zabbix_url='https://www.zabbix.com'
 
@@ -53,17 +54,18 @@ def send_card (card):
     card (connectorcard): Connector card ready to be sent.
     """
 
-    while True:
+    for num_try in range(0, max_tries):
         try:
-            print ("Sending Card")
+            print ("Sending Card {} of {} times".format(num_try, max_tries))
             if card.send():
                 print ("Card Sent.")
             else:
                 print ("Card Not Sent.")
 
         except pymsteams.TeamsWebhookException:
-            print ("Trying again ")
-            sleep(0.2)
+            sleep(0.8)
+            print ("Trying again {} of {} times".format(num_try, max_tries))
+            
             continue
 
         break
