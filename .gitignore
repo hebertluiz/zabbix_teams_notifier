@@ -1,0 +1,3 @@
+*.url
+.vscode/
+test.py
