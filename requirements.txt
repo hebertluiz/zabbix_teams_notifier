@@ -1,5 +1,5 @@
 pymsteams==0.1.12
-certifi==2019.11.28
+certifi==2023.7.22
 chardet==3.0.4
 idna==2.9
 requests==2.23.0
